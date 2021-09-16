@@ -6,10 +6,18 @@ const UserItem = () => {
 
     const context = useContext(MyContext)
 
-    console.log(context)
     return(
         <>
-            User item 
+            { context.active ?
+                context.users.map((user)=>
+                
+                    <div key={user.id}>
+                        <h3>Name: {user.name}</h3>
+                    </div>
+                ):null
+            }
+            <hr/>
+            <button onClick={context.toggleActive}>Toggle it</button>
         </>
     )
 }
